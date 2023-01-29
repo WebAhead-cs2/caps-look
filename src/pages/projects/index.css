@@ -1,0 +1,20 @@
+.btns{
+    background-color: #343343;
+}
+#btncreat,#btnedit,#btnarchive,#btnExport{
+    background-color: #343343; 
+    border: none;
+    color: rgba(232, 230, 237, 0.41);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+}
+#btnExport{
+    position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
