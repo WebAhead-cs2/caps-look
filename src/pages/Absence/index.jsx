@@ -4,7 +4,7 @@ import PageContainer from '../../components/PageContainer'
 import SearchBar from '../../components/SearchBar'
 
 export default function Absence() {
-  const [list, setList] = React.useState([]) 
+  const [list, setList] = React.useState([])
 
   const getAbsence = async () => {
     try {
