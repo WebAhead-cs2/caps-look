@@ -19,7 +19,8 @@ export default function PopUpMessage(props) {
       await fetch(`${api.apiRequest}/AddingProject`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        credentials: 'include'
       })
       if (body == null) {
         return 'you must to insert data'

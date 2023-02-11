@@ -16,7 +16,9 @@ const Projects = () => {
 
   const getProjects = async () => {
     try {
-      const result = await fetch(`${api.apiRequest}/ProjectPage`)
+      const result = await fetch(`${api.apiRequest}/ProjectPage`, {
+        credentials: 'include'
+      })
       const res = await result.json()
       setProjects(res.data)
     } catch (err) {
