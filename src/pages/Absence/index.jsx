@@ -43,7 +43,7 @@ const columns = [
 
   return (
     <div>
-      <PageContainer>
+      <PageContainer name={'Absences'}>
       <SearchBar/>
       <ContentsTable source={list} columns={columns} />
       </PageContainer>
