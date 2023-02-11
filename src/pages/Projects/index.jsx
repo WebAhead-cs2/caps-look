@@ -10,9 +10,9 @@ const Projects = () => {
   const [projects, setProjects] = useState([{}])
   const getProjects = async () => {
     try {
-      const result = await fetch('http://localhost:4000/Projects')
+      const result = await fetch('http://localhost:4000/ProjectPage')
       const res = await result.json()
-      setProjects(res)
+      setProjects(res.data)
     } catch (err) {
       throw new Error('No data found !!!')
     }
