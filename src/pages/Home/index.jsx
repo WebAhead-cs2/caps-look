@@ -5,7 +5,7 @@ import style from './style.module.scss'
 
 const Home = () => {
   return (
-    <PageContainer name = "Home">
+    <PageContainer name="Home">
       <div>
         <ListItem />
       </div>
