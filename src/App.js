@@ -21,7 +21,12 @@ import 'primereact/resources/primereact.css'
 import './reset.scss'
 import './App.scss'
 import React, { useEffect } from 'react'
+import useAuth from './middleware/useAuth'
 function App() {
+
+  const logToken = useAuth(document.cookie.valueOf('userToken'))
+  const flag = logToken
+  
   const isLoggedIn = document.cookie.indexOf('userToken') !== -1
   useEffect(() => {
     if (
@@ -39,6 +44,7 @@ function App() {
       </div>
     )
   }
+  // if(flag === 'scrum_master'){
   return (
     <div style={{ textAlign: 'center' }}>
       <Router>
@@ -47,11 +53,11 @@ function App() {
           <Sidebar />
           <div className={Style.mainPage}>
             <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/Projects" element={<Projects />} />
-              <Route path="/Absence" element={<Absence />} />
-              <Route path="/Employes" element={<Employee />} />
-              <Route path="/Cadence" element={<Cadence />} />
+             {(flag === 'scrum_master') && <Route path="/home" element={<Home />} />}
+             {(flag === 'scrum_master') &&  <Route path="/Projects" element={<Projects />} />}
+             {(flag === 'scrum_master') &&  <Route path="/Absence" element={<Absence />} />}
+             {(flag === 'scrum_master') &&<Route path="/Employes" element={<Employee />} />}
+             {(flag === 'scrum_master') &&  <Route path="/Cadence" element={<Cadence />} />}
             </Routes>
           </div>
         </div>
