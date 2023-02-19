@@ -18,7 +18,7 @@ const logout = async () => {
 const Sidebar = () => {
   const logToken = useAuth(document.cookie.valueOf('userToken'))
   const flag = logToken
-  if (flag === 'scrum_master') {
+  if (flag === 'scrum_masters') {
     return (
       <div>
         <nav className={style.sidebar}>
