@@ -20,6 +20,7 @@ import Capacity from './pages/Capacity'
 import React, { useEffect } from 'react'
 import { getRole, isAuthorized } from './utils/useAuth'
 
+
 function App() {
   const logToken = getRole(document.cookie.valueOf('userToken'))
   const isLoggedIn = document.cookie.indexOf('userToken') !== -1
