@@ -66,7 +66,6 @@ const Scrums = () => {
       })
       const res = await result.json()
       setscrumMaster(res.data.rows)
-
     } catch (err) {
       throw new Error('No data found !!!')
     }
