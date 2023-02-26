@@ -1,6 +1,6 @@
 import style from './style.module.scss'
 import React from 'react'
-import { useState, useEffect, useReducer } from 'react'
+import { useState } from 'react'
 import PageContainer from '../../components/PageContainer'
 import DateDropDown from '../../components/capacity/DateDropDown'
 import PiDropDown from '../../components/capacity/PiDropDown'
@@ -10,8 +10,6 @@ import 'primeicons/primeicons.css'
 import { RadioButton } from 'primereact/radiobutton'
 
 const Selection = () => {
-  const [visibleDate, setVisibleDate] = useState(false)
-  const [visiblePi, setVisiblePi] = useState(false)
   const [category, setCategory] = useState('Pi')
 
   console.log(category)

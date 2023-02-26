@@ -12,7 +12,6 @@ const DateDropdown = (props) => {
     from_date: '',
     to_date: ''
   })
-  const iterations_mapped = []
 
   const fetchPi = async () => {
     const body = { id: 2 }
@@ -45,7 +44,7 @@ const DateDropdown = (props) => {
   }
 
   return (
-    <div className={StyleSheet.dropdown}>
+    <div className={style.dropdown}>
       <Dropdown
         visible={props.status}
         id="startDate"

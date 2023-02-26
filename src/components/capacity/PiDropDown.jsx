@@ -14,8 +14,6 @@ const PiDropdown = (props) => {
     to_iteration: ''
   })
 
-  const iterations_mapped = []
-
   const fetchPi = async () => {
     const body = { id: 2 }
     try {
