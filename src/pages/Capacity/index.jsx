@@ -103,7 +103,7 @@ const Capacity = () => {
             <div className={style.pi}>
               <RadioButton
                 inputId="category1"
-                 value="Pi"
+                value="Pi"
                 name="Pi"
                 onChange={(e) => {
                   setCategory(e.value)
@@ -125,7 +125,7 @@ const Capacity = () => {
                 }}
                 checked={category === 'Date'}
               />
-              <label htmlFor="category2" className="ml2">
+              <label htmlFor="category2" className="ml">
                 Date
               </label>
             </div>
