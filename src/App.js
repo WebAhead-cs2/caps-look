@@ -16,9 +16,9 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css'
 import 'primereact/resources/primereact.css'
 import './reset.scss'
 import './App.scss'
+import Capacity from './pages/Capacity'
 import React, { useEffect } from 'react'
 import { getRole, isAuthorized } from './utils/useAuth'
-import Capacity from './pages/Capacity'
 
 function App() {
   const logToken = getRole(document.cookie.valueOf('userToken'))
