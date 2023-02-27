@@ -29,7 +29,6 @@ const Cadence = () => {
   )
   return (
     <PageContainer>
-      <div style={{ width: '90%' }}></div>
       <div className={style.innerContainer}>
         <SelectProject
           selectProjectState={selectProjectState}

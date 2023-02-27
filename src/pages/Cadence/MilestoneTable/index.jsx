@@ -63,7 +63,7 @@ const MilestoneTable = ({
   }, [data, refreshMilestonesTable])
   return (
     <>
-      <div style={{ width: '800px', marginTop: '50px' }}>
+      <div style={{ width: '100%', marginTop: '50px' }}>
         <ContentsTable
           source={milestonesProject}
           columns={columns}
