@@ -51,17 +51,17 @@ button {
   border-color: #595786;
 }
 .mileStone {
-  margin-left: 560px;
-  margin-top: 20px;
+  margin-left: 660px;
+  margin-top: 120px;
   visibility: hidden;
 }
 .PI {
-  margin-left: 560px;
+  margin-left: 660px;
   margin-top: -100px;
   visibility: hidden;
 }
 .iteration {
-  margin-left: 560px;
+  margin-left: 660px;
   margin-top: 20px;
   margin-bottom: 10px;
   visibility: hidden;
@@ -88,4 +88,7 @@ button {
   font-size: large;
   color: #210f61;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.flex {
+  display: flex;
 }

@@ -81,7 +81,7 @@ const SelectPI = ({
       />
       <span
         style={{
-          marginLeft: '-20px',
+          marginLeft: '-200px',
           visibility: visibilityIterationEditArchiveButton
         }}
       >

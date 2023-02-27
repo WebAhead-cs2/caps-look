@@ -61,7 +61,7 @@ const PITable = ({ selectPIState, refreshPITable, updateStatePITable }) => {
   }, [data, refreshPITable])
   return (
     <>
-      <div style={{ width: '800px', marginTop: '50px' }}>
+      <div style={{ width: '100%', marginTop: '50px' }}>
         <ContentsTable
           source={iterationsPI}
           columns={columns}
@@ -113,7 +113,7 @@ const PITable = ({ selectPIState, refreshPITable, updateStatePITable }) => {
         }}
         data={iterationsPI}
       >
-        <button className={style.exportbutton} style={{ marginLeft: '560px' }}>
+        <button className={style.exportbutton} style={{ marginLeft: '550px' }}>
           Export as CSV
         </button>
       </CSVLink>
