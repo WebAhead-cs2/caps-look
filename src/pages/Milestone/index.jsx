@@ -3,17 +3,20 @@ import React, { useRef, useState, useEffect, useReducer } from 'react'
 import SearchBar from '../../components/SearchBar'
 import PageContainer from '../../components/PageContainer'
 import ContentsTable from '../../components/ContentsTable'
-import PopUpMessage from './PopUpDialog'
-import EditPopUpMessage from './EditPopUpDialog'
+import { Dropdown } from 'primereact/dropdown'
+// import PopUpMessage from './PopUpDialog'
+// import EditPopUpMessage from './EditPopUpDialog'
 import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
 import { CSVLink } from 'react-csv'
+//import ArchiveProject from './ArchiveProject'
 import api from '../../config'
-import ArchiveProject from './ArchiveProject'
-import { Toast } from 'primereact/toast'
+import CreateMilestone from './CreateMilestone'
+import ArchiveMilestone from './ArchiveMilestone'
+import EditMilestone from './EditMilestone'
 
-const Projects = () => {
-  const [projects, setProjects] = useState([{}])
+const Milestone = () => {
+  const [milestones, setMilestones] = useState([])
   const [visible, setVisible] = useState(false)
   const [visibleEdit, setVisibleEdit] = React.useState(false)
   const [visibleArchive, setVisibleArchive] = React.useState(false)
@@ -22,10 +25,12 @@ const Projects = () => {
   const [selectedData, setSelectedData] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [refresh, updateState] = useReducer((x) => x + 1, 0)
-  const toast = useRef(null)
-  const getProjects = async () => {
+  const [projects, setProjects] = useState([{}])
+  const [selectedproject, setSelectedproject] = useState(null)
+
+  const getProjectsName = async () => {
     try {
-      const result = await fetch(`${api.apiRequest}/ProjectPage`, {
+      const result = await fetch(`${api.apiRequest}/projects`, {
         credentials: 'include'
       })
       const res = await result.json()
@@ -35,43 +40,74 @@ const Projects = () => {
     }
   }
 
-  const searchProject = (selectedData) => {
+  const getMilestones = async (project_id) => {
+    try {
+      const body = {
+        project_id: project_id
+      }
+      const result = await fetch(`${api.apiRequest}/milestoneProject`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        credentials: 'include'
+      })
+      const res = await result.json()
+      setMilestones(res.data)
+    } catch (err) {
+      throw new Error('No data found !!!')
+    }
+  }
+
+  const searchMilestone = (selectedData) => {
     setSelectedData(selectedData)
     if (selectedData !== '') {
-      const newProjectList = projects.filter((project) => {
-        return Object.values(project.project_name)
+      const newMilestoneList = milestones.filter((milestone) => {
+        return Object.values(milestone.milestone_name)
           .join('')
           .toLowerCase()
           .includes(selectedData.toLowerCase())
       })
-      setSearchResults(newProjectList)
+      setSearchResults(newMilestoneList)
     } else {
       return searchResults(selectedData)
     }
   }
 
   useEffect(() => {
-    getProjects()
+    getProjectsName()
   }, [refresh])
 
   const columns = [
-    { title: 'name', dataIndex: 'project_name' },
-    { title: 'scrum #', dataIndex: 'scrum_number' },
-    { title: 'Emp #', dataIndex: 'employee_number' },
-    { title: 'iteration #', dataIndex: 'iteration_number' }
+    { title: 'Name', dataIndex: 'milestone_name' },
+    { title: 'Start Date', dataIndex: 'milestone_start_date' },
+    { title: 'End Date', dataIndex: 'milestone_end_date' },
+    { title: 'Description', dataIndex: 'description' }
   ]
 
   return (
-    <PageContainer name={'Projects'}>
+    <PageContainer name={'Milestones'}>
+      <Dropdown
+        style={{ margin: 10 }}
+        className="w-full md:w-14rem"
+        placeholder="Select a Project"
+        value={selectedproject}
+        options={projects}
+        optionLabel="project_name"
+        optionValue="id"
+        onChange={(e) => {
+          setSelectedproject(e.value)
+          getMilestones(e.value)
+        }}
+      />
       <SearchBar
-        PlaceholderItem={'Search a Project'}
-        name={'project_name'}
+        PlaceholderItem={'Search a Milestone'}
+        name={'milestone_name'}
         selectedData={selectedData}
-        searchKeyword={searchProject}
+        searchKeyword={searchMilestone}
       />
       <div style={{ width: '90%' }}>
         <ContentsTable
-          source={selectedData.length < 1 ? projects : searchResults}
+          source={selectedData.length < 1 ? milestones : searchResults}
           columns={columns}
           onEditRow={(e) => {
             setVisibleEdit(true)
@@ -89,7 +125,7 @@ const Projects = () => {
         <div className={style.Create}>
           <Button
             id="Create"
-            label="Create Project"
+            label="Create Milestone"
             onClick={() => setVisible(true)}
           />
         </div>
@@ -98,7 +134,7 @@ const Projects = () => {
             style={{
               textDecoration: 'none'
             }}
-            data={projects}
+            data={milestones}
           >
             <button>Export as CSV</button>
           </CSVLink>
@@ -113,18 +149,11 @@ const Projects = () => {
           setVisible(false)
         }}
       >
-        <PopUpMessage
-          clicked={'add'}
-          Project={projects}
+        <CreateMilestone
+          project={selectedproject}
           onSubmit={() => {
             setVisible(false)
-            toast.current.show({
-              severity: 'success',
-              summary: 'Success Message',
-              detail: 'adding project done successfully'
-            })
           }}
-          refresh={updateState}
         />
       </Dialog>
       <Dialog
@@ -133,18 +162,12 @@ const Projects = () => {
         visible={visibleEdit}
         onHide={() => setVisibleEdit(false)}
       >
-        <EditPopUpMessage
-          clicked="Edit"
+        <EditMilestone
           source={edit}
+          project={selectedproject}
           onSubmit={() => {
             setVisibleEdit(false)
-            toast.current.show({
-              severity: 'success',
-              summary: 'Success Message',
-              detail: 'updating  project  details done successfully'
-            })
           }}
-          refresh={updateState}
         />
       </Dialog>
       <Dialog
@@ -153,22 +176,16 @@ const Projects = () => {
         visible={visibleArchive}
         onHide={() => setVisibleArchive(false)}
       >
-        <ArchiveProject
+        <ArchiveMilestone
           data={archive}
           onSubmit={() => {
             setVisibleArchive(false)
-            toast.current.show({
-              severity: 'success',
-              summary: 'Success Message',
-              detail: 'removing  project done successfully'
-            })
           }}
           refresh={updateState}
         />
       </Dialog>
-      <Toast ref={toast} />
     </PageContainer>
   )
 }
 
-export default Projects
+export default Milestone

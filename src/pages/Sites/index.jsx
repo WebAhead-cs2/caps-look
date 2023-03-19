@@ -37,7 +37,6 @@ const Sites = () => {
       })
       const res = await result.json()
       setSites(res.data)
-      console.log(res.data)
     } catch (err) {
       throw new Error('No data found !!!')
     }
@@ -83,6 +82,7 @@ const Sites = () => {
           }}
         />
       </div>
+      <br />
       <div className={style.buttonsContainer}>
         <div className={style.Create}>
           <Button
@@ -101,7 +101,6 @@ const Sites = () => {
             <button>Export as CSV</button>
           </CSVLink>
         </div>
-        <br />
         <Dialog
           header="Caps Look"
           style={{ textAlign: 'center' }}

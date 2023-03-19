@@ -35,7 +35,9 @@ const Sidebar = () => {
           <Link to="/Projects" className={style.link}>
             Projects
           </Link>
-
+          <Link to="/Milstones" className={style.link}>
+            Milestone
+          </Link>
           <Link to="/Absence" className={style.link}>
             Absence
           </Link>
@@ -43,8 +45,15 @@ const Sidebar = () => {
           <Link to="/Employes" className={style.link}>
             Employees
           </Link>
+
           <Link to="/Scrums" className={style.link}>
             Scrums
+          </Link>
+          <Link to="/Capacity" className={style.link}>
+            Capacity
+          </Link>
+          <Link to="/cadence" className={style.link}>
+            Cadence
           </Link>
           <hr className={style.cutter} />
           <Link to="/Settings" className={style.link}>
