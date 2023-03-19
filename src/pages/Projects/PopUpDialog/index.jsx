@@ -34,7 +34,7 @@ export default function PopUpMessage(props) {
             closable: true
           }
         ])
-      }  else if (
+      } else if (
         resultBody.message === 'Please Insert starting date for the project'
       ) {
         return msgs.current.show([

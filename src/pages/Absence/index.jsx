@@ -31,7 +31,6 @@ export default function Absence() {
   const [currentPage, setCurrentPage] = React.useState(1)
   const [postsPerPage, setPostsPerPage] = React.useState(8)
 
-
   const toast = useRef(null)
   const getAbsences = async () => {
     try {
