@@ -10,7 +10,7 @@ export default function PopUpMessage(props) {
   const [data, setData] = React.useState({
     ProjectName: '',
     StartDate: ''
-  })
+    })
   const msgs = useRef(null)
   const onChange = (key) => (e) => setData({ ...data, [key]: e.target.value })
   const createProject = async () => {
@@ -23,7 +23,7 @@ export default function PopUpMessage(props) {
         body: JSON.stringify(body)
       })
       const resultBody = await result.json()
-
+      
       if (resultBody.message === 'Please Insert a name for the project') {
         return msgs.current.show([
           {

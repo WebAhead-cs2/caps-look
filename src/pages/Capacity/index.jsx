@@ -22,10 +22,8 @@ export default function Capacity(props) {
   const [projects, setProjects] = useState([])
   const [date, setDate] = useState([])
   const [pi, setPi] = useState([])
-
   const [dataFrom, setDataFrom] = useState(-1)
   const [dataTo, setDataTo] = useState(-1)
-
   const [refresh, updateState] = useReducer((x) => x + 1, 0)
   const [scrumEmployee, setScrumEmployee] = React.useState([])
   const [employeeAbsences, setEmployeeAbsences] = React.useState([])
