@@ -17,7 +17,6 @@ export default function Capacity(props) {
   const [selectedproject, setSelectedproject] = useState(null)
   const [Itrationlist, setItrationList] = useState([])
   const [itrationsTitles, setItrationsTitles] = useState([])
-  //const [category, setCategory] = useState('Pi')
   const [scrums, setScrums] = useState([])
   const [projects, setProjects] = useState([])
   const [date, setDate] = useState([])
@@ -233,7 +232,6 @@ export default function Capacity(props) {
   const capacityScrumPerIteration = scrumEmployeesDisplay.map((scrum, si) => ({
     scrum_name: scrum.scrum_name,
     capacityPerIteration: totalCapacityScrum?.map((e) => e.sum),
-    // slice TotalCapsItr from 0 to 2
     totalcapsT: TotalCapsItr[0]
       ?.slice(
         si * flatten(itrationsTitles).length,

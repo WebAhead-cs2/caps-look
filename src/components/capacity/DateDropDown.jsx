@@ -12,7 +12,6 @@ const DateDropdown = (props) => {
     to_date: ''
   })
 
-
   useEffect(() => {}, [])
   const onChange = (key) => (e) => {
     setData({ ...data, [key]: e.target.value })
