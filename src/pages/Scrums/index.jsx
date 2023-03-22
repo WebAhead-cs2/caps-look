@@ -9,12 +9,10 @@ import EditPopUpMessage from './EditPopUpDialog'
 import ArchiveScrum from './ArchiveScrum'
 import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
-import { AutoComplete } from 'primereact/autocomplete'
 import { CSVLink } from 'react-csv'
 import api from '../../config'
 import { Toast } from 'primereact/toast'
 import { Dropdown } from 'primereact/dropdown'
-import Pagination from '../../components/Pagination'
 
 const Scrums = () => {
   const toast = useRef(null)

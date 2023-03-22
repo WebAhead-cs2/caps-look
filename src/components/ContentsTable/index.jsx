@@ -3,7 +3,6 @@ import style from './style.module.scss'
 import { CiEdit } from 'react-icons/ci'
 import { BiArchiveIn } from 'react-icons/bi'
 import { Button } from 'primereact/button'
-import Pagination from '../Pagination'
 
 const ContentsTable = (props) => {
   return (
@@ -76,7 +75,6 @@ const ContentsTable = (props) => {
           )
         })}
       </div>
-      <Pagination />
     </div>
   )
 }

@@ -14,7 +14,6 @@ import ArchiveSite from './ArchiveSite'
 import { Toast } from 'primereact/toast'
 const Sites = () => {
   const toast = useRef(null)
-  const [locations, setLocations] = useState([{}])
   const [visible, setVisible] = useState(false)
   const [visibleEdit, setVisibleEdit] = React.useState(false)
   const [visibleArchive, setVisibleArchive] = React.useState(false)

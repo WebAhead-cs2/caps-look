@@ -1,8 +1,5 @@
 import React from 'react'
 import style from './style.module.scss'
-import { CiEdit } from 'react-icons/ci'
-import { BiArchiveIn } from 'react-icons/bi'
-import { Button } from 'primereact/button'
 
 const ContentsTable = (props) => {
   return (

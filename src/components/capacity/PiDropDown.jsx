@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import api from '../../config'
 import { Dropdown } from 'primereact/dropdown'
 import style from './style.module.scss'
 

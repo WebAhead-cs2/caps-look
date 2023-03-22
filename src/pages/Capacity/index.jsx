@@ -6,11 +6,9 @@ import { MultiSelect } from 'primereact/multiselect'
 import { Dropdown } from 'primereact/dropdown'
 import PageContainer from '../../components/PageContainer'
 import PiDropDown from '../../components/capacity/PiDropDown'
-import DateDropDown from '../../components/capacity/DateDropDown'
 import 'primereact/resources/themes/lara-light-indigo/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
-import { RadioButton } from 'primereact/radiobutton'
 
 export default function Capacity(props) {
   const [selectedScrum, setSelectedScrum] = useState(null)

@@ -6,15 +6,14 @@ import { Button } from 'primereact/button'
 import { Dropdown } from 'primereact/dropdown'
 import { Dialog } from 'primereact/dialog'
 import CreatePi from './CreatePi'
-import ContentsTable from '../../components/ContentsTable'
-import { TreeSelect } from 'primereact/treeselect'
 import { CSVLink } from 'react-csv'
 import AddPi from './addPi'
 import DeletePi from './deletePi'
 import CreateIteration from './CreateIteration'
 import EditIterationDetails from './EditIterationDetails'
-import ContentsTableIterations from '../ContentTableIteration'
+import ContentsTableIterations from './ContentTableIteration'
 import DeleteIteration from './DeleteIteration'
+
 const Cadence = () => {
   const toast = useRef(null)
   const [projects, setProjects] = useState([{}])
@@ -22,8 +21,6 @@ const Cadence = () => {
   const [pis, setPis] = useState([])
   const [iterations, setIterations] = useState([])
   const [selectedpi, setSelectedpi] = useState(null)
-  const [nodes, setNodes] = useState(null)
-  const [selectedNodeKey, setSelectedNodeKey] = useState(null)
   const [visibleCreatePi, setVisibleCreatePi] = useState(false)
   const [visibleAddPi, setVisibleAddPi] = useState(false)
   const [visibleAddIteration, setVisibleAddIteration] = useState(false)
@@ -33,13 +30,8 @@ const Cadence = () => {
   const [showHideCreate, setShowHideCreate] = useState(false)
   const [showHideAdd, setShowHideAdd] = useState(false)
   const [showHideDeleteIteration, setShowHideDeleteIteration] = useState(false)
-
-  const [expandedKeys, setExpandedKeys] = useState({})
   const [visibleEdit, setVisibleEdit] = useState(false)
-  const [deletePis, setDeletePi] = useState({})
   const [edit, setEdit] = useState({})
-  const [selectedData, setSelectedData] = useState('')
-  const [searchResults, setSearchResults] = useState([])
   const [filteredData, setFilteredData] = useState(null)
   const [filteredPi, setFilteredPi] = useState(null)
 
