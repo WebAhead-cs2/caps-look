@@ -36,7 +36,6 @@ export default function EditPopUpMessage(props) {
   }
   const updateScrum = async () => {
     const body = editData
-    console.log(body)
     console.log('body : ' + body + ' Id : ' + props.source.scrum_id)
     try {
       let message = ''

@@ -9,11 +9,10 @@ import EditPopUpMessage from './EditPopUpDialog'
 import ArchiveScrum from './ArchiveScrum'
 import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
-import { AutoComplete } from 'primereact/autocomplete'
 import { CSVLink } from 'react-csv'
 import api from '../../config'
 import { Toast } from 'primereact/toast'
-import Pagination from '../../components/Pagination'
+import { Dropdown } from 'primereact/dropdown'
 
 const Scrums = () => {
   const toast = useRef(null)
@@ -118,19 +117,23 @@ const Scrums = () => {
   return (
     <PageContainer name={'Scrums'}>
       <div className="card flex justify-content-center">
-        <AutoComplete
+        <Dropdown
           style={{ margin: 10 }}
           type="search"
-          className={style.searchbar}
+          className="w-full md:w-14rem"
           placeholder="Select a Project"
           field="project_name"
           value={selectedproject}
           suggestions={filteredData}
           completeMethod={search}
+          options={projects}
+          optionLabel="project_name"
+          optionValue="id"
           onChange={(e) => {
             setSelectedproject(e.value)
-            getScrums(e.value.id)
+            getScrums(e.value)
           }}
+          filter
         />
       </div>
       <SearchBar
@@ -155,7 +158,6 @@ const Scrums = () => {
           />
         )}
       </div>
-
       <br />
       <div className={style.buttonsContainer}>
         <div className={style.Create}>
@@ -171,7 +173,6 @@ const Scrums = () => {
               textDecoration: 'none'
             }}
             data={scrums}
-            onClick={() => {}}
           >
             <button>Export as CSV</button>
           </CSVLink>

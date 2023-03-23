@@ -1,10 +1,26 @@
-.containerSelector {
-  width: 40%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 18px;
-  padding-top: 5%;
-  background-color: aliceblue;
-  text-align: center;
+.iterationTables {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  .leftTable {
+    width: 28%;
+    background-color: white;
+    height: max-content;
+    padding: 10px;
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  .rightTable {
+    background-color: white;
+    width: 70%;
+    height: max-content;
+    padding: 10px;
+    height: 400px;
+    border-radius: 10px;
+    position: relative;
+  }
 }
 
 .card {
@@ -19,7 +35,6 @@
 .pi {
   padding-right: 10%;
   padding-left: 10%;
-  position: static;
 }
 .dropdown {
   display: flex;

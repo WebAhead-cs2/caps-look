@@ -8,13 +8,10 @@ import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
 import { CSVLink, CSVReader } from 'react-csv'
 import { Toast } from 'primereact/toast'
-
 import { parse } from 'papaparse'
-
 import style from './style.module.scss'
 import ArchiveAbsence from './absenceArchive'
 import EditAbsence from './editAbsence'
-
 import Pagination from '../../components/Pagination'
 
 export default function Absence() {

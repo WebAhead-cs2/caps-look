@@ -1,8 +1,5 @@
 import React from 'react'
 import style from './style.module.scss'
-import { CiEdit } from 'react-icons/ci'
-import { BiArchiveIn } from 'react-icons/bi'
-import { Button } from 'primereact/button'
 
 const ContentsTable = (props) => {
   return (
@@ -48,29 +45,6 @@ const ContentsTable = (props) => {
                   )
                 })}
               </div>
-              <Button
-                id="Edit"
-                className={style.EditContainer}
-                style={{ background: color }}
-                onClick={() => {
-                  if (props.onEditRow) {
-                    props.onEditRow(data)
-                  }
-                }}
-              >
-                <CiEdit className={style.innerIcons} />
-              </Button>
-              <Button
-                className={style.ArchiveContainer}
-                style={{ background: color }}
-                onClick={() => {
-                  if (props.archiveRow) {
-                    props.archiveRow(data)
-                  }
-                }}
-              >
-                <BiArchiveIn className={style.innerIcons} />
-              </Button>
             </div>
           )
         })}

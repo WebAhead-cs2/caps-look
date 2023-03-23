@@ -14,7 +14,6 @@ import ArchiveSite from './ArchiveSite'
 import { Toast } from 'primereact/toast'
 const Sites = () => {
   const toast = useRef(null)
-  const [locations, setLocations] = useState([{}])
   const [visible, setVisible] = useState(false)
   const [visibleEdit, setVisibleEdit] = React.useState(false)
   const [visibleArchive, setVisibleArchive] = React.useState(false)
@@ -37,7 +36,6 @@ const Sites = () => {
       })
       const res = await result.json()
       setSites(res.data)
-      console.log(res.data)
     } catch (err) {
       throw new Error('No data found !!!')
     }
@@ -83,6 +81,7 @@ const Sites = () => {
           }}
         />
       </div>
+      <br />
       <div className={style.buttonsContainer}>
         <div className={style.Create}>
           <Button
@@ -101,7 +100,6 @@ const Sites = () => {
             <button>Export as CSV</button>
           </CSVLink>
         </div>
-        <br />
         <Dialog
           header="Caps Look"
           style={{ textAlign: 'center' }}
